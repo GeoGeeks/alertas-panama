@@ -5,13 +5,14 @@ import arcgis
 
 def update_tsunamis(bbox, url, translation, gis, itemid):
     """
-
-    :param bbox:
-    :param url:
-    :param translation:
-    :param gis:
-    :param itemid:
-    :return:
+    Updates a hosted FeatureLayer in ArcGIS Online using tsunami data from
+    a specified url.
+    :param bbox:            Bounding box to filter the results.
+    :param url:             Url to get the data from.
+    :param translation:     Map to change DataFrame column names.
+    :param gis:             gis object from the ArcGIS API.
+    :param itemid:          Target FeatureLayer's item id.
+    :return:                None.
     """
     driver = webdriver.Firefox()
     driver.get(url)
