@@ -28,4 +28,5 @@ if __name__ == '__main__':
         update_tsunamis(config['bbox'], config['urls']['NOAA'],
                         config['translations']['tsunamis'], gis,
                         config['item_ids']['tsunamis'])
+        print('\n\n')
         time.sleep(5 * 60)
