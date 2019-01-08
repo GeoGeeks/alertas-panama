@@ -1,0 +1,35 @@
+bbox: [-82.9657830472, 7.2205414901, -77.2425664944, 9.61161001224]
+urls:
+  MODIS: https://firms.modaps.eosdis.nasa.gov/active_fire/c6/text/MODIS_C6_Central_America_24h.csv
+  VIIRS: https://firms.modaps.eosdis.nasa.gov/active_fire/viirs/text/VNP14IMGTDL_NRT_Central_America_24h.csv
+  USGS: https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.csv
+  NOAA: https://www.tsunami.gov/
+item_ids:
+  fires: 72a3b73e5fc24c2f972272d89ab1cf95
+  earthquakes: aa2ae1a58ec041d3b531187d66f5e323
+  storms: [5b84e159dace4bf8ad9e9154085ba45d, ae952e2d2d544a8f8a062dbc71922a9a]
+  tsunamis: 775a63c34d404b84b98406710d605c76
+translations:
+  earthquakes:
+    longitude: lon
+    latitude: lat
+    time: fecha
+    depth: profundidad
+    place: lugar
+    mag: mag
+  fires:
+    longitude: lon
+    latitude: lat
+    dt: fecha
+  storms:
+    DTG: fecha,
+    STORMNAME: nombre
+    STORMTYPE: tipo
+    INTENSITY: intensidad
+    LON: lon
+    LAT: lat
+  tsunamis:
+    Lon: lon,
+    Lat: lat,
+    Issued *: fecha,
+    Location: lugar
