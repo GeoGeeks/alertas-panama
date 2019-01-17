@@ -1,7 +1,7 @@
-from .events.earthquakes import update_earthquakes
-from .events.fires import update_fires
-from .events.storms import update_storms
-from .events.tsunamis import update_tsunamis
+from events.earthquakes import update_earthquakes
+from events.fires import update_fires
+from events.storms import update_storms
+from events.tsunamis import update_tsunamis
 
 import arcgis
 import time
@@ -29,4 +29,4 @@ if __name__ == '__main__':
                         config['translations']['tsunamis'], gis,
                         config['item_ids']['tsunamis'])
         print('\n\n')
-        time.sleep(5 * 60)
+        time.sleep(60 * 60)
