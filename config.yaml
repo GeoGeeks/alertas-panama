@@ -1,4 +1,4 @@
-bbox: [-82.9657830472, 7.2205414901, -77.2425664944, 9.61161001224]
+bbox: [-85.5, 5.0, -74.5, 13.0]
 urls:
   MODIS: https://firms.modaps.eosdis.nasa.gov/active_fire/c6/text/MODIS_C6_Central_America_24h.csv
   VIIRS: https://firms.modaps.eosdis.nasa.gov/active_fire/viirs/text/VNP14IMGTDL_NRT_Central_America_24h.csv
@@ -22,14 +22,14 @@ translations:
     latitude: lat
     dt: fecha
   storms:
-    DTG: fecha,
+    DTG: fecha
     STORMNAME: nombre
     STORMTYPE: tipo
     INTENSITY: intensidad
     LON: lon
     LAT: lat
   tsunamis:
-    Lon: lon,
-    Lat: lat,
-    Issued *: fecha,
+    Lon: lon
+    Lat: lat
+    Issued *: fecha
     Location: lugar
