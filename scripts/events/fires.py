@@ -28,19 +28,23 @@ def update_fires(bbox, urls, translation, gis, itemid):
         fires['dt'] = pd.to_datetime(fires['dt'], format='%Y-%m-%d%H%M')
         fires = fires.rename(columns=translation)
         fires = fires[cols[:-1]]
-        df = df.append(fires, ignore_index=True)
+        df = df.append(fires, ignore_index=True, sort=False)
         df['satelite'].fillna(sat, inplace=True)
-    lyr = gis.content.get(itemid).layers[0]
-    features = lyr.query()
-    ids = ','.join([str(feat.attributes['OBJECTID']) for feat in features])
-    if ids:
-        lyr.edit_features(deletes=ids)
-    df['fecha'] = df['fecha'].astype(str)
-    sdf = arcgis.features.SpatialDataFrame.from_xy(df.copy(), 'lon', 'lat')
-    fset = arcgis.features.FeatureSet.from_dataframe(sdf)
-    lyr.edit_features(adds=fset)
-    print(f'Fires updated:\t{len(fset)} added and {len(features)} '
-          f'removed.')
+
+    if not df.empty:
+        lyr = gis.content.get(itemid).layers[0]
+        features = lyr.query()
+        ids = ','.join([str(feat.attributes['OBJECTID']) for feat in features])
+        if ids:
+            lyr.edit_features(deletes=ids)
+        df['fecha'] = df['fecha'].astype(str)
+        sdf = arcgis.features.SpatialDataFrame.from_xy(df.copy(), 'lon', 'lat')
+        fset = arcgis.features.FeatureSet.from_dataframe(sdf)
+        lyr.edit_features(adds=fset)
+        print(f'Fires updated:\t{len(fset)} added and {len(features)} '
+              f'removed.')
+    else:
+        print('No fires have been found.')
 
 
 
